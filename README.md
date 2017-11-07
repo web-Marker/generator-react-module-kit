@@ -77,7 +77,7 @@
 
 
 
-####安装效果图
+#### 安装效果图
 
 ![5](https://ws4.sinaimg.cn/large/006tNc79gy1fl9nkl2ha6g30ea0n0129.gif)
 
