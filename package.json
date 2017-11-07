@@ -1,0 +1,16 @@
+{
+    "name": "generator-react-module-kit",
+    "version": "0.1.0",
+    "description": "react全家桶生成器",
+    "files": [
+        "app"
+    ],
+    "keywords": [
+        "yeoman-generator"
+    ],
+    "dependencies": {
+        "yeoman-generator": "^0.17.3",
+        "chalk": "^1.0.0",
+        "yosay": "^1.0.2"
+    }
+}
