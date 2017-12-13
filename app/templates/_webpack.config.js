@@ -2,7 +2,7 @@
 * @Author: mark
 * @Date:   2017-03-02 10:16:35
 * @Last Modified by:   mark
-* @Last Modified time: 2017-09-27 10:32:02
+* @Last Modified time: 2017-12-12 09:42:07
 */
 
 var fs = require('fs'),
@@ -76,15 +76,6 @@ module.exports = function(env) {
                             }
                         }
                     ]
-                },
-                {
-                    test: path.resolve(__dirname, './src/js/phonerm'),
-                    use: [
-                        {
-                            loader: 'expose-loader',
-                            options: 'Rem'
-                        }
-                    ]
                 }
             ]
         },
@@ -121,7 +112,13 @@ module.exports = function(env) {
             use:ExtractTextPlugin.extract({
                     fallback: "style-loader",
                     loader: [ 
-                        'css-loader',
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true,
+                                localIdentName: '[hash:base64:5]'
+                            }
+                        },
                         {
                             loader: 'postcss-loader',
                             options: {
@@ -151,11 +148,19 @@ module.exports = function(env) {
     }else{
         styles = {
             test: /\.css$/, 
-            use: [{
+            use: [
+            {
                 loader: "style-loader" 
-            },{
-                loader: "css-loader" 
-            },{
+            },
+            {
+                loader: "css-loader",
+                options: {
+                    modules: true,
+                    importLoaders: 1,
+                    localIdentName: '[hash:base64:5]'
+                }
+            },
+            {
                 loader: "postcss-loader",
                 options: {
                     plugins: function(){
